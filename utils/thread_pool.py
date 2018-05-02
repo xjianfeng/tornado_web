@@ -1,6 +1,12 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
+"""
+File: thread_pool.py
+Author: xjianfeng 
+Description: 线程池 
+在tornado中使用线程池其实并发还是有点不足
+暂时先满足使用需求，后续选择其他方案优化
+"""
 import threading 
 import Queue 
 import traceback
@@ -46,4 +52,5 @@ class ThreadPool(object):
         self.jobs.put((callback, args, kwarg))
 
 
+#全局创建n个线程
 GThreadPool = ThreadPool(20)

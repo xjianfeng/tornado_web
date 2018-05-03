@@ -53,4 +53,4 @@ class ThreadPool(object):
 
 
 #全局创建n个线程
-GThreadPool = ThreadPool(20)
+GThreadPool = ThreadPool(300)

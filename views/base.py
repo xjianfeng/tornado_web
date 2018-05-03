@@ -6,6 +6,9 @@ import tornado.web
 import tornado.ioloop
 import traceback
 from utils.thread_pool import GThreadPool
+from utils.log import Logger
+
+logger = Logger("server")
 
 class BaseHandler(tornado.web.RequestHandler):
     @tornado.web.asynchronous
@@ -20,7 +23,13 @@ class BaseHandler(tornado.web.RequestHandler):
             func = args[0][0]
             tpargs = args[0][1:]
             func(*tpargs)
+            message = "%s %s (%s)" % (self.request.method, 
+                                      self.request.uri, self.request.remote_ip)
+            logger.info(message)
         except:
             traceback.print_exc()
         finally:
             tornado.ioloop.IOLoop.instance().add_callback(self.finish)
+
+    def log_info(self, message):
+        logger.info(message)

@@ -5,6 +5,6 @@ import views
 
 route_handler = [
     (r"/", views.index.HomeHandler),
-    (r"/payinfo/(\w+)/(\w+)[/]?", views.payinfo.PayInfoHandler),
+    (r"/payinfo/(\w+)/(\w+)/(\w+)[/]?", views.payinfo.PayInfoHandler),
     (r"/configinfo", views.configinfo.ConfigHandler),
 ]

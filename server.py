@@ -34,10 +34,6 @@ def signal_handler():
     signal.signal(signal.SIGTERM, stop_server)
 
 
-def init_log():
-    pass 
-
-
 def start_server():
     tornado.options.parse_command_line()
     http_server = tornado.httpserver.HTTPServer(Application()) 

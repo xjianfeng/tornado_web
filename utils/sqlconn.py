@@ -1,10 +1,13 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 """
 File: sqlconn.py
 Author: xjianfeng 
 Description: 数据查询类
 """
 import MySQLdb
-from settings import MYSQL_DATABASES
+from settings import DATABASE_CONFIG as MYSQL_DATABASES
 
 class DBObject(object):
     DictType = 1 
